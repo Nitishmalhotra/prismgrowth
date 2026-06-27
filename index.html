@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prism — Digital Marketing & Data Analytics</title>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VL72ZRFJ4', { 'send_page_view': true });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VL72ZRFJ4"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -792,13 +800,69 @@ document.querySelectorAll('.svc, .step-row, .result-card').forEach(el => {
   obs.observe(el);
 });
 
-// Form submit
+// Safe gtag wrapper — ensures GA4 is always ready
+function sendEvent(name, params) {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
+  }
+}
+
+// Form submit + GA4 lead event
 document.getElementById('leadForm').addEventListener('submit', function(e) {
   e.preventDefault();
   this.style.display = 'none';
   document.getElementById('success-msg').style.display = 'block';
-  // 🔌 Connect to HubSpot / Netlify Forms / Zapier here
+  sendEvent('generate_lead', {
+    event_category: 'Lead Form',
+    event_label: 'Contact Form Submitted',
+    service: document.getElementById('service').value || 'Not selected',
+    budget: document.getElementById('budget').value || 'Not selected'
+  });
 });
+
+// CTA click tracking
+document.querySelectorAll('a[href="#contact"], .nav-cta').forEach(el => {
+  el.addEventListener('click', () => {
+    sendEvent('cta_click', {
+      event_category: 'Engagement',
+      event_label: el.textContent.trim()
+    });
+  });
+});
+
+// Scroll depth tracking (25 / 50 / 75 / 100%)
+const scrollDepths = [25, 50, 75, 100];
+const scrollFired = new Set();
+window.addEventListener('scroll', () => {
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  if (docHeight <= 0) return;
+  const pct = Math.round((window.scrollY / docHeight) * 100);
+  scrollDepths.forEach(d => {
+    if (pct >= d && !scrollFired.has(d)) {
+      scrollFired.add(d);
+      sendEvent('scroll_depth', {
+        event_category: 'Scroll',
+        event_label: d + '%',
+        value: d
+      });
+    }
+  });
+});
+
+// Section view tracking
+const sections = document.querySelectorAll('section[id]');
+const sectionObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      sendEvent('section_view', {
+        event_category: 'Section',
+        event_label: e.target.id
+      });
+      sectionObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => sectionObs.observe(s));
 </script>
 </body>
 </html>
