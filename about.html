@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Nitish Malhotra | Prism</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #FFFFFF;
+  --ink: #0A0A0A;
+  --signal: #FF3D00;
+  --surface: #F5F5F5;
+  --rule: #E0E0E0;
+  --muted: #999999;
+  --dark-surface: #111111;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── CURSOR ── */
+.cursor {
+  position: fixed; width: 8px; height: 8px;
+  background: var(--signal); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+  mix-blend-mode: multiply;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3.5rem; height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.03em;
+}
+.nav-logo em { font-style: normal; color: var(--signal); }
+.nav-center { display: flex; list-style: none; }
+.nav-center li a {
+  display: block; padding: 0 1.5rem;
+  height: 64px; line-height: 64px;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  border-left: 1px solid var(--rule);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-center li:last-child a { border-right: 1px solid var(--rule); }
+.nav-center li a:hover,
+.nav-center li a.active { color: var(--ink); background: var(--surface); }
+.nav-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  background: var(--signal); color: var(--white);
+  padding: 0.55rem 1.4rem; text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+.nav-cta:hover { background: #e03500; transform: translateY(-1px); }
+
+/* ── HERO INTRO ── */
+#intro {
+  padding-top: 64px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-left {
+  padding: 6rem 3.5rem 5rem;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.intro-tag {
+  font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+.intro-tag::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--signal);
+}
+.intro-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 700; line-height: 1.0;
+  letter-spacing: -0.04em;
+}
+.intro-name .signal { color: var(--signal); }
+.intro-title {
+  margin-top: 1.5rem;
+  font-size: 1.05rem; color: var(--muted);
+  font-weight: 400; line-height: 1.6;
+  max-width: 380px;
+}
+.intro-links {
+  display: flex; gap: 1rem; margin-top: 3rem; flex-wrap: wrap;
+}
+.intro-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink); text-decoration: none;
+  border: 1px solid var(--rule);
+  padding: 0.5rem 1.1rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+.intro-link:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.intro-link.primary { background: var(--signal); color: var(--white); border-color: var(--signal); }
+.intro-link.primary:hover { background: #e03500; border-color: #e03500; }
+
+.intro-right {
+  display: flex; flex-direction: column;
+}
+.stat-panel {
+  flex: 1; padding: 5rem 3rem 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.stat-panel-label {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.5rem;
+}
+.stat-block {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: baseline; gap: 0.5rem;
+}
+.stat-block:first-of-type { border-top: 1px solid var(--rule); }
+.stat-big {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  color: var(--ink); line-height: 1;
+}
+.stat-big.signal { color: var(--signal); }
+.stat-unit {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem; font-weight: 300; color: var(--muted);
+}
+.stat-meta { margin-left: auto; text-align: right; }
+.stat-meta strong { display: block; font-size: 0.85rem; font-weight: 600; }
+.stat-meta span { font-size: 0.75rem; color: var(--muted); }
+
+.intro-bottom {
+  height: 64px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; padding: 0 3rem; gap: 2rem;
+}
+.strip-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--signal); animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.strip-text { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
+.strip-pills { display: flex; gap: 0.5rem; margin-left: auto; }
+.strip-pill {
+  font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; padding: 0.25rem 0.7rem;
+  border: 1px solid var(--rule); color: var(--muted);
+}
+
+/* ── ABOUT SUMMARY ── */
+#summary {
+  display: grid; grid-template-columns: 1fr 2fr;
+  border-bottom: 1px solid var(--rule);
+}
+.summary-left {
+  padding: 4rem 3.5rem;
+  border-right: 1px solid var(--rule);
+}
+.section-label {
+  font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.summary-left h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.summary-left h2 i { font-style: italic; font-weight: 300; color: var(--muted); }
+.summary-right {
+  padding: 4rem 3.5rem;
+}
+.summary-right p {
+  font-size: 1.05rem; line-height: 1.85;
+  color: #444; max-width: 640px; margin-bottom: 1.5rem;
+}
+.summary-right p:last-child { margin-bottom: 0; }
+.summary-right strong { color: var(--ink); font-weight: 600; }
+
+/* ── EXPERTISE ── */
+#expertise {
+  border-bottom: 1px solid var(--rule);
+}
+.expertise-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 3.5rem 3.5rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.expertise-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.expertise-header p {
+  max-width: 320px; color: var(--muted);
+  font-size: 0.9rem; line-height: 1.7; text-align: right;
+}
+.expertise-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.exp-card {
+  padding: 2.5rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+  position: relative; overflow: hidden;
+}
+.exp-card:nth-child(3n) { border-right: none; }
+.exp-card:hover { background: var(--surface); }
+.exp-card::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; height: 2px; width: 0;
+  background: var(--signal); transition: width 0.3s ease;
+}
+.exp-card:hover::after { width: 100%; }
+.exp-icon {
+  font-size: 1.5rem; margin-bottom: 1.5rem; display: block;
+}
+.exp-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 0.6rem;
+}
+.exp-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+.exp-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+.chip {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em;
+  color: var(--muted); border: 1px solid var(--rule);
+  padding: 0.2rem 0.55rem; text-transform: uppercase;
+}
+
+/* ── CAREER ── */
+#career {
+  border-bottom: 1px solid var(--rule);
+}
+.career-header {
+  padding: 3.5rem 3.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2.5rem;
+}
+.career-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.career-row {
+  display: grid; grid-template-columns: 280px 1fr;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+.career-row:last-child { border-bottom: none; }
+.career-row:hover { background: var(--surface); }
+.career-meta {
+  padding: 2.5rem 3.5rem;
+  border-right: 1px solid var(--rule);
+}
+.career-company {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.career-period {
+  font-size: 0.78rem; color: var(--signal);
+  font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.career-body { padding: 2.5rem 3.5rem; }
+.career-role {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem; font-weight: 600;
+  margin-bottom: 0.75rem; letter-spacing: -0.01em;
+}
+.career-body ul {
+  list-style: none; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.career-body ul li {
+  font-size: 0.875rem; color: var(--muted);
+  line-height: 1.65; padding-left: 1rem; position: relative;
+}
+.career-body ul li::before {
+  content: '→'; position: absolute; left: 0;
+  color: var(--signal); font-size: 0.75rem;
+}
+.career-win {
+  margin-top: 1.25rem; padding: 1rem 1.25rem;
+  background: var(--surface); border-left: 2px solid var(--signal);
+  font-size: 0.85rem; color: var(--ink); line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── TOOLS ── */
+#tools {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+.tools-left {
+  padding: 4rem 3.5rem;
+  border-right: 1px solid var(--rule);
+}
+.tools-left h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 700; letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+.tool-group { margin-bottom: 2rem; }
+.tool-group-label {
+  font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted);
+  margin-bottom: 0.75rem; font-weight: 600;
+}
+.tool-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tool-pill {
+  font-size: 0.8rem; font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--rule); color: var(--ink);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  cursor: default;
+}
+.tool-pill:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+.tools-right {
+  padding: 4rem 3.5rem;
+  background: var(--dark-surface); color: var(--white);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.tools-right h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem; font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 0.4rem;
+}
+.tools-right .edu-sub { color: #555; font-size: 0.85rem; margin-bottom: 2.5rem; }
+.edu-item { padding: 1.5rem 0; border-bottom: 1px solid #1e1e1e; }
+.edu-item:last-child { border-bottom: none; }
+.edu-degree {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.edu-school { font-size: 0.85rem; color: #666; }
+.edu-year { font-size: 0.75rem; color: var(--signal); margin-top: 0.2rem; font-weight: 500; }
+
+/* ── CTA ── */
+#cta {
+  background: var(--dark-surface);
+  color: var(--white);
+  padding: 6rem 3.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 3rem; flex-wrap: wrap;
+}
+.cta-copy {}
+.cta-copy p {
+  font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.12em; color: #555;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.cta-copy p::before {
+  content: ''; width: 20px; height: 1px; background: var(--signal);
+}
+.cta-copy h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.cta-copy h2 em { font-style: italic; font-weight: 300; color: #555; }
+.cta-actions { display: flex; flex-direction: column; gap: 1rem; flex-shrink: 0; }
+.cta-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 0.85rem 2rem; text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap; text-align: center;
+}
+.cta-btn.primary { background: var(--signal); color: var(--white); }
+.cta-btn.primary:hover { background: #e03500; }
+.cta-btn.secondary {
+  border: 1px solid #2a2a2a; color: #888;
+  background: transparent;
+}
+.cta-btn.secondary:hover { border-color: #555; color: var(--white); }
+
+/* ── FOOTER ── */
+footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+  border-top: 1px solid var(--rule);
+  background: var(--white);
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1rem;
+  letter-spacing: -0.03em; color: var(--ink); text-decoration: none;
+}
+.footer-logo em { font-style: normal; color: var(--signal); }
+footer p { font-size: 0.78rem; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-center { display: none; }
+  #intro { grid-template-columns: 1fr; }
+  .intro-left { padding: 3rem 1.5rem; }
+  .stat-panel { padding: 2.5rem 1.5rem; }
+  .intro-bottom { padding: 0 1.5rem; }
+  #summary { grid-template-columns: 1fr; }
+  .summary-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 2.5rem 1.5rem; }
+  .summary-right { padding: 2.5rem 1.5rem; }
+  .expertise-header { flex-direction: column; padding: 2rem 1.5rem; }
+  .expertise-header p { text-align: left; }
+  .expertise-grid { grid-template-columns: 1fr; }
+  .exp-card { border-right: none; }
+  .career-row { grid-template-columns: 1fr; }
+  .career-meta { border-right: none; border-bottom: 1px solid var(--rule); padding: 2rem 1.5rem; }
+  .career-body { padding: 2rem 1.5rem; }
+  .expertise-header { gap: 1rem; }
+  #tools { grid-template-columns: 1fr; }
+  .tools-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 2.5rem 1.5rem; }
+  .tools-right { padding: 2.5rem 1.5rem; }
+  #cta { padding: 4rem 1.5rem; flex-direction: column; }
+  footer { padding: 1.5rem; }
+  .career-header { padding: 2.5rem 1.5rem; }
+  .expertise-header { padding: 2rem 1.5rem 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .cursor { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Prism<em>.</em></a>
+  <ul class="nav-center">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-left">
+    <div class="intro-tag">Founder & Principal Consultant</div>
+    <div>
+      <h1 class="intro-name">
+        Nitish<br>
+        <span class="signal">Malhotra.</span>
+      </h1>
+      <p class="intro-title">
+        Analytics leader with 10+ years turning complex data problems into decisions that move revenue — across e-commerce, fintech, and super apps.
+      </p>
+      <div class="intro-links">
+        <a href="index.html#contact" class="intro-link primary">Work With Me</a>
+        <a href="https://www.linkedin.com/in/nitish-malhotra-3794b9b4/" target="_blank" class="intro-link">LinkedIn →</a>
+        <a href="https://github.com/Nitishmalhotra" target="_blank" class="intro-link">GitHub →</a>
+      </div>
+    </div>
+  </div>
+  <div class="intro-right">
+    <div class="stat-panel">
+      <p class="stat-panel-label">By the numbers</p>
+
+      <div class="stat-block">
+        <span class="stat-big signal">10</span>
+        <span class="stat-unit">+ yrs</span>
+        <div class="stat-meta">
+          <strong>Industry Experience</strong>
+          <span>Analytics & Digital Marketing</span>
+        </div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-big">98</span>
+        <span class="stat-unit">%</span>
+        <div class="stat-meta">
+          <strong>Data Collection Accuracy</strong>
+          <span>Delivered across enterprise implementations</span>
+        </div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-big signal">15</span>
+        <span class="stat-unit">ppl</span>
+        <div class="stat-meta">
+          <strong>Teams Led</strong>
+          <span>Cross-functional analysts & QA specialists</span>
+        </div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-big">4</span>
+        <span class="stat-unit">sectors</span>
+        <div class="stat-meta">
+          <strong>Verticals Covered</strong>
+          <span>E-commerce · Fintech · BFSI · Super Apps</span>
+        </div>
+      </div>
+    </div>
+    <div class="intro-bottom">
+      <div class="strip-dot"></div>
+      <span class="strip-text">Based in Australia · Full work rights</span>
+      <div class="strip-pills">
+        <span class="strip-pill">GA4</span>
+        <span class="strip-pill">Adobe Analytics</span>
+        <span class="strip-pill">GTM</span>
+        <span class="strip-pill">Power BI</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <div class="summary-left">
+    <p class="section-label">Who I am</p>
+    <h2>Data that<br>earns its<br><i>place.</i></h2>
+  </div>
+  <div class="summary-right">
+    <p>
+      I started Prism because I kept seeing the same problem across every company I worked with — marketing teams spending serious money with no reliable way to know what was actually working. The data existed. The tools existed. What was missing was someone who could connect them properly.
+    </p>
+    <p>
+      With a decade leading analytics at <strong>Tata Digital</strong>, <strong>Publicis Groupe</strong>, and <strong>Interactive Avenues</strong>, I've built measurement infrastructure for some of the most complex digital products in Asia — super apps, fintech platforms, and enterprise e-commerce at scale. I've run GA4 and Adobe Analytics implementations, led cross-functional teams of 15, and built the reporting frameworks that leadership actually uses to make decisions.
+    </p>
+    <p>
+      At Prism, I bring that enterprise rigour to growing businesses — without the agency overhead, without the account manager layer, and without the guesswork. <strong>You get direct access to someone who has done this at the highest level.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="expertise-header">
+    <h2>Core expertise</h2>
+    <p>What I actually know deeply — not a laundry list of tools.</p>
+  </div>
+  <div class="expertise-grid">
+    <div class="exp-card">
+      <span class="exp-icon">📊</span>
+      <h3>Analytics Implementation</h3>
+      <p>End-to-end GA4 and Adobe Analytics builds — from data layer design through to QA and governance. I've delivered 98%+ data accuracy at enterprise scale.</p>
+      <div class="exp-chips">
+        <span class="chip">GA4</span><span class="chip">Adobe Analytics</span><span class="chip">GTM</span><span class="chip">Firebase</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🎯</span>
+      <h3>Performance Marketing Analytics</h3>
+      <p>CRM integration, attribution modelling, and LTV prediction. I've built drop-chase campaigns and retention programs that move retention KPIs at scale.</p>
+      <div class="exp-chips">
+        <span class="chip">Multi-touch</span><span class="chip">Google Ads Hub</span><span class="chip">CRM</span><span class="chip">LTV Models</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🔬</span>
+      <h3>CRO & Funnel Analysis</h3>
+      <p>Behavioural and path analysis to identify funnel drop-offs. Delivered UX and product insights that improved conversion and reduced cart abandonment at e-commerce scale.</p>
+      <div class="exp-chips">
+        <span class="chip">Optimizely</span><span class="chip">VWO</span><span class="chip">Adobe Target</span><span class="chip">A/B Testing</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">📈</span>
+      <h3>Dashboards & BI</h3>
+      <p>Custom Power BI, Looker, and Data Studio dashboards built for leadership — tracking visits, transactions, error rates, and conversion KPIs in real time.</p>
+      <div class="exp-chips">
+        <span class="chip">Power BI</span><span class="chip">Looker</span><span class="chip">BigQuery</span><span class="chip">SQL</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🏗️</span>
+      <h3>Data Governance</h3>
+      <p>Measurement frameworks, BRDs, TSDs, and QA playbooks that make analytics outputs reliable and auditable — built to survive team changes and platform migrations.</p>
+      <div class="exp-chips">
+        <span class="chip">BRD / TSD</span><span class="chip">Data QA</span><span class="chip">Governance</span><span class="chip">Tagging</span>
+      </div>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🚀</span>
+      <h3>GA4 Migration</h3>
+      <p>Led multiple enterprise GA4 migrations ahead of the UA sunset — ensuring data continuity, uninterrupted KPI reporting, and advanced BigQuery integrations.</p>
+      <div class="exp-chips">
+        <span class="chip">GA4</span><span class="chip">UA Migration</span><span class="chip">BigQuery</span><span class="chip">Data Layer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="career-header">
+    <p class="section-label">Career</p>
+    <h2>Where I've done this before</h2>
+  </div>
+
+  <div class="career-row">
+    <div class="career-meta">
+      <div class="career-company">Tata Digital</div>
+      <div class="career-period">Jul 2022 — Dec 2025</div>
+    </div>
+    <div class="career-body">
+      <div class="career-role">Associate Director, Web Analytics</div>
+      <ul>
+        <li>Owned enterprise-wide analytics strategy across one of India's largest super apps</li>
+        <li>Led and mentored a 15-member cross-functional team of analysts and QA specialists</li>
+        <li>Built predictive LTV models and hyper-targeted retention campaigns integrating CRM, performance marketing, and analytics</li>
+        <li>Drove Google Ads Hub implementation — leveraging behaviour-based segmentation and remarketing to increase LTV</li>
+      </ul>
+      <div class="career-win">
+        ↗ Accelerated executive decision-making through reporting automation — cutting time-to-insight for leadership significantly.
+      </div>
+    </div>
+  </div>
+
+  <div class="career-row">
+    <div class="career-meta">
+      <div class="career-company">Interactive Avenues</div>
+      <div class="career-period">Mar 2022 — Jul 2022</div>
+    </div>
+    <div class="career-body">
+      <div class="career-role">Senior Manager, Web Analytics</div>
+      <ul>
+        <li>Led strategic client engagements across BFSI and e-commerce verticals</li>
+        <li>Pitched and delivered multiple GA4 migration projects for enterprise clients</li>
+        <li>Delivered audience segmentation, user behaviour, and competitive analysis via custom dashboards</li>
+      </ul>
+      <div class="career-win">
+        ↗ Drove higher conversion through strategic CRO analysis and testing — unlocking advanced tracking capabilities for clients through GA4 migrations.
+      </div>
+    </div>
+  </div>
+
+  <div class="career-row">
+    <div class="career-meta">
+      <div class="career-company">Publicis Groupe</div>
+      <div class="career-period">Feb 2020 — Mar 2022</div>
+    </div>
+    <div class="career-body">
+      <div class="career-role">Manager, Web Analytics</div>
+      <ul>
+        <li>Led end-to-end GA4/GA360 and BigQuery implementations for enterprise clients across BFSI, FMCG, Hospitality, Aviation, and E-commerce</li>
+        <li>Built and governed tagging via GTM and Adobe Launch with scalable data layer architecture</li>
+        <li>Delivered GA4 migrations ahead of the UA sunset — ensuring data continuity across all clients</li>
+      </ul>
+      <div class="career-win">
+        ↗ Improved data collection accuracy to 98%+ by implementing QA governance standards and standardised onboarding playbooks.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS + EDUCATION -->
+<section id="tools">
+  <div class="tools-left">
+    <p class="section-label">Stack</p>
+    <h2>Tools I work with daily</h2>
+    <div class="tool-group">
+      <div class="tool-group-label">Analytics Platforms</div>
+      <div class="tool-pills">
+        <span class="tool-pill">Google Analytics 4</span>
+        <span class="tool-pill">Adobe Analytics</span>
+        <span class="tool-pill">Firebase</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">Tag Management</div>
+      <div class="tool-pills">
+        <span class="tool-pill">Google Tag Manager</span>
+        <span class="tool-pill">Adobe Launch</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">Data & BI</div>
+      <div class="tool-pills">
+        <span class="tool-pill">BigQuery</span>
+        <span class="tool-pill">Power BI</span>
+        <span class="tool-pill">Looker Studio</span>
+        <span class="tool-pill">Tableau</span>
+        <span class="tool-pill">SQL</span>
+        <span class="tool-pill">Python</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">Testing & CRO</div>
+      <div class="tool-pills">
+        <span class="tool-pill">Optimizely</span>
+        <span class="tool-pill">VWO</span>
+        <span class="tool-pill">Adobe Target</span>
+      </div>
+    </div>
+    <div class="tool-group">
+      <div class="tool-group-label">Attribution</div>
+      <div class="tool-pills">
+        <span class="tool-pill">Multi-touch</span>
+        <span class="tool-pill">First/Last Click</span>
+        <span class="tool-pill">Google Ads Hub</span>
+      </div>
+    </div>
+  </div>
+  <div class="tools-right">
+    <p class="section-label" style="color:#444; margin-bottom:2rem;">Education</p>
+    <h3>Academic Background</h3>
+    <p class="edu-sub">Finance, strategy, and a decade of real-world delivery.</p>
+    <div class="edu-item">
+      <div class="edu-degree">PGDM — Finance & International Business</div>
+      <div class="edu-school">FORE School of Management, New Delhi</div>
+      <div class="edu-year">2015 – 2018</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">B.Com (Honours)</div>
+      <div class="edu-school">University of Delhi</div>
+      <div class="edu-year">2009 – 2013</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-copy">
+    <p>Ready to talk?</p>
+    <h2>Let's look at<br>your data <em>together.</em></h2>
+  </div>
+  <div class="cta-actions">
+    <a href="index.html#contact" class="cta-btn primary">Start a Conversation</a>
+    <a href="mailto:hello@prismgrowth.co.au" class="cta-btn secondary">hello@prismgrowth.co.au</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Prism<em>.</em></a>
+  <p>Digital Marketing & Data Analytics Consulting</p>
+  <p>hello@prismgrowth.co.au</p>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .exp-card, .career-row, .tool-pill').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px'; cursor.style.height = '20px'; cursor.style.opacity = '0.5';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '8px'; cursor.style.height = '8px'; cursor.style.opacity = '1';
+  });
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'none';
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.exp-card, .career-row, .stat-block').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
