@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nitishmalhotra.github.io/prismgrowth/sitemap.xml
+Sitemap: https://www.prismgrowth.co.au/sitemap.xml
