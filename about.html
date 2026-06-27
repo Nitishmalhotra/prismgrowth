@@ -457,6 +457,71 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .cursor { display: none; }
 }
+
+/* ── PROJECTS ── */
+#projects { border-bottom: 1px solid var(--rule); }
+.projects-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 3.5rem 3.5rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.projects-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.projects-header p {
+  max-width: 320px; color: var(--muted);
+  font-size: 0.9rem; line-height: 1.7; text-align: right;
+}
+.project-row {
+  display: grid; grid-template-columns: 320px 1fr;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+}
+.project-row:last-child { border-bottom: none; }
+.project-row:hover { background: var(--surface); }
+.project-meta {
+  padding: 3rem 3.5rem;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.project-index {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--signal); letter-spacing: 0.1em;
+  margin-bottom: 1.25rem;
+}
+.project-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem; font-weight: 700;
+  letter-spacing: -0.02em; line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.project-sector {
+  font-size: 0.78rem; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.project-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.project-body { padding: 3rem 3.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.project-body p { font-size: 0.9rem; color: #444; line-height: 1.8; margin: 0; }
+.project-outcomes { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+.outcome { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; line-height: 1.6; }
+.outcome-marker {
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem; font-weight: 700;
+  color: var(--white); background: var(--signal);
+  padding: 0.15rem 0.45rem; margin-top: 0.1rem; letter-spacing: 0.04em;
+}
+.outcome-text { color: var(--ink); font-weight: 500; }
+@media (max-width: 900px) {
+  .projects-header { flex-direction: column; padding: 2rem 1.5rem; gap: 1rem; }
+  .projects-header p { text-align: left; }
+  .project-row { grid-template-columns: 1fr; }
+  .project-meta { border-right: none; border-bottom: 1px solid var(--rule); padding: 2rem 1.5rem; }
+  .project-body { padding: 2rem 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -469,6 +534,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   <ul class="nav-center">
     <li><a href="index.html#services">Services</a></li>
     <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
@@ -478,7 +544,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 <!-- INTRO -->
 <section id="intro">
   <div class="intro-left">
-    <div class="intro-tag">Principal Consultant</div>
+    <div class="intro-tag">Founder & Principal Consultant</div>
     <div>
       <h1 class="intro-name">
         Nitish<br>
@@ -490,6 +556,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
       <div class="intro-links">
         <a href="index.html#contact" class="intro-link primary">Work With Me</a>
         <a href="https://www.linkedin.com/in/nitish-malhotra-3794b9b4/" target="_blank" class="intro-link">LinkedIn →</a>
+        <a href="https://github.com/Nitishmalhotra" target="_blank" class="intro-link">GitHub →</a>
       </div>
     </div>
   </div>
@@ -514,17 +581,25 @@ footer p { font-size: 0.78rem; color: var(--muted); }
         </div>
       </div>
       <div class="stat-block">
+        <span class="stat-big signal">15</span>
+        <span class="stat-unit">ppl</span>
+        <div class="stat-meta">
+          <strong>Teams Led</strong>
+          <span>Cross-functional analysts & QA specialists</span>
+        </div>
+      </div>
+      <div class="stat-block">
         <span class="stat-big">4</span>
         <span class="stat-unit">sectors</span>
         <div class="stat-meta">
           <strong>Verticals Covered</strong>
-          <span>Hospitality · Tourism · E-commerce · Fintech · BFSI · Super Apps</span>
+          <span>E-commerce · Fintech · BFSI · Super Apps</span>
         </div>
       </div>
     </div>
     <div class="intro-bottom">
       <div class="strip-dot"></div>
-      <span class="strip-text">Based in Australia </span>
+      <span class="strip-text">Based in Australia · Full work rights</span>
       <div class="strip-pills">
         <span class="strip-pill">GA4</span>
         <span class="strip-pill">Adobe Analytics</span>
@@ -544,6 +619,9 @@ footer p { font-size: 0.78rem; color: var(--muted); }
   <div class="summary-right">
     <p>
       I started Prism because I kept seeing the same problem across every company I worked with — marketing teams spending serious money with no reliable way to know what was actually working. The data existed. The tools existed. What was missing was someone who could connect them properly.
+    </p>
+    <p>
+      With a decade leading analytics at <strong>Tata Digital</strong>, <strong>Publicis Groupe</strong>, and <strong>Interactive Avenues</strong>, I've built measurement infrastructure for some of the most complex digital products in Asia — super apps, fintech platforms, and enterprise e-commerce at scale. I've run GA4 and Adobe Analytics implementations, led cross-functional teams of 15, and built the reporting frameworks that leadership actually uses to make decisions.
     </p>
     <p>
       At Prism, I bring that enterprise rigour to growing businesses — without the agency overhead, without the account manager layer, and without the guesswork. <strong>You get direct access to someone who has done this at the highest level.</strong>
@@ -620,12 +698,36 @@ footer p { font-size: 0.78rem; color: var(--muted); }
     <div class="career-meta">
       <div class="career-company">Tata Digital</div>
       <div class="career-period">Jul 2022 — Dec 2025</div>
+    </div>
+    <div class="career-body">
+      <div class="career-role">Associate Director, Web Analytics</div>
+      <ul>
+        <li>Owned enterprise-wide analytics strategy across one of India's largest super apps</li>
+        <li>Led and mentored a 15-member cross-functional team of analysts and QA specialists</li>
+        <li>Built predictive LTV models and hyper-targeted retention campaigns integrating CRM, performance marketing, and analytics</li>
+        <li>Drove Google Ads Hub implementation — leveraging behaviour-based segmentation and remarketing to increase LTV</li>
+      </ul>
+      <div class="career-win">
+        ↗ Accelerated executive decision-making through reporting automation — cutting time-to-insight for leadership significantly.
+      </div>
+    </div>
+  </div>
 
   <div class="career-row">
     <div class="career-meta">
       <div class="career-company">Interactive Avenues</div>
       <div class="career-period">Mar 2022 — Jul 2022</div>
     </div>
+    <div class="career-body">
+      <div class="career-role">Senior Manager, Web Analytics</div>
+      <ul>
+        <li>Led strategic client engagements across BFSI and e-commerce verticals</li>
+        <li>Pitched and delivered multiple GA4 migration projects for enterprise clients</li>
+        <li>Delivered audience segmentation, user behaviour, and competitive analysis via custom dashboards</li>
+      </ul>
+      <div class="career-win">
+        ↗ Drove higher conversion through strategic CRO analysis and testing — unlocking advanced tracking capabilities for clients through GA4 migrations.
+      </div>
     </div>
   </div>
 
@@ -634,8 +736,128 @@ footer p { font-size: 0.78rem; color: var(--muted); }
       <div class="career-company">Publicis Groupe</div>
       <div class="career-period">Feb 2020 — Mar 2022</div>
     </div>
+    <div class="career-body">
+      <div class="career-role">Manager, Web Analytics</div>
+      <ul>
+        <li>Led end-to-end GA4/GA360 and BigQuery implementations for enterprise clients across BFSI, FMCG, Hospitality, Aviation, and E-commerce</li>
+        <li>Built and governed tagging via GTM and Adobe Launch with scalable data layer architecture</li>
+        <li>Delivered GA4 migrations ahead of the UA sunset — ensuring data continuity across all clients</li>
+      </ul>
+      <div class="career-win">
+        ↗ Improved data collection accuracy to 98%+ by implementing QA governance standards and standardised onboarding playbooks.
+      </div>
     </div>
   </div>
+</section>
+
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-header">
+    <h2>Selected work</h2>
+    <p>Real engagements. Outcomes anonymised where client confidentiality applies.</p>
+  </div>
+
+  <div class="project-row">
+    <div class="project-meta">
+      <div>
+        <div class="project-index">PROJECT 01</div>
+        <div class="project-title">Enterprise GA4 Migration & BigQuery Integration</div>
+        <div class="project-sector">E-commerce · Super App</div>
+      </div>
+      <div class="project-chips">
+        <span class="chip">GA4</span>
+        <span class="chip">BigQuery</span>
+        <span class="chip">GTM</span>
+        <span class="chip">Data Layer</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Led the full migration from Universal Analytics to GA4 for a large-scale super app platform ahead of the UA sunset deadline — covering web, iOS, and Android surfaces simultaneously. The scope included data layer architecture, GTM container restructuring, custom event taxonomy design, and BigQuery export configuration for downstream data science use.</p>
+      <p>The migration was delivered without any gap in KPI reporting continuity. Post-migration, the GA4 + BigQuery integration unlocked audience segmentation and remarketing capabilities that weren't possible in UA.</p>
+      <div class="project-outcomes">
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Zero KPI reporting downtime across the UA → GA4 transition</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Advanced behaviour-based segmentation enabled for remarketing via GA4 + BigQuery</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">98%+ data collection accuracy validated post-implementation through structured QA playbooks</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row">
+    <div class="project-meta">
+      <div>
+        <div class="project-index">PROJECT 02</div>
+        <div class="project-title">Predictive LTV Modelling & Retention Campaign Infrastructure</div>
+        <div class="project-sector">Fintech · CRM</div>
+      </div>
+      <div class="project-chips">
+        <span class="chip">CRM</span>
+        <span class="chip">LTV Modelling</span>
+        <span class="chip">Google Ads Hub</span>
+        <span class="chip">Segmentation</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Designed and delivered a unified data infrastructure combining performance marketing, CRM, and analytics data into a single model — enabling the business to predict customer lifetime value and build hyper-targeted retention campaigns at scale.</p>
+      <p>Integrated Google Ads Hub with the analytics stack to enable behaviour-based audience segmentation and remarketing. The LTV model informed campaign budget allocation across channels, shifting spend toward high-retention cohorts.</p>
+      <div class="project-outcomes">
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Unified CRM + analytics + paid media data into a single LTV prediction model</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Hyper-targeted Drop Chase retention campaigns deployed at scale — improving ROI on retention spend</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Behaviour-based remarketing via Google Ads Hub increased repeat engagement and LTV</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row">
+    <div class="project-meta">
+      <div>
+        <div class="project-index">PROJECT 03</div>
+        <div class="project-title">Executive Reporting Automation & Self-Serve BI Platform</div>
+        <div class="project-sector">E-commerce · Leadership Reporting</div>
+      </div>
+      <div class="project-chips">
+        <span class="chip">Power BI</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Looker</span>
+        <span class="chip">Automation</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Built the reporting infrastructure for an in-house analytics platform — translating business requirements into a self-serve BI layer tracking core KPIs (visits, transactions, conversion rate, error rates) across all business units. Co-built Power BI dashboards with BI engineering teams used in weekly leadership reviews.</p>
+      <p>A key outcome was reducing dependence on ad-hoc analyst requests — enabling product, marketing, and operations teams to answer their own questions from a single governed data source.</p>
+      <div class="project-outcomes">
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Automated executive reporting — faster insight-to-decision cycle for leadership</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Self-serve BI layer significantly reduced ad-hoc analyst request volume</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Single source of truth for KPIs across product, marketing, and operations</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-row">
+    <div class="project-meta">
+      <div>
+        <div class="project-index">PROJECT 04</div>
+        <div class="project-title">E-Commerce Funnel Analysis & CRO Programme</div>
+        <div class="project-sector">E-commerce · Conversion Optimisation</div>
+      </div>
+      <div class="project-chips">
+        <span class="chip">CRO</span>
+        <span class="chip">Path Analysis</span>
+        <span class="chip">A/B Testing</span>
+        <span class="chip">UX Audit</span>
+      </div>
+    </div>
+    <div class="project-body">
+      <p>Conducted deep behavioural and path analysis across the checkout funnel of a high-traffic e-commerce platform to identify where users were dropping off and why. Analysis covered session recordings, funnel visualisations, event-level data, and cohort comparisons across device types and acquisition channels.</p>
+      <p>Findings were translated into prioritised UX and product recommendations — tested via structured A/B experiments, with each iteration feeding the next hypothesis.</p>
+      <div class="project-outcomes">
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Identified key funnel drop-off points — reduced cart abandonment through targeted UX fixes</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Structured A/B testing programme improved checkout conversion rate</span></div>
+        <div class="outcome"><span class="outcome-marker">↑</span><span class="outcome-text">Insights adopted by product and engineering teams — built into roadmap prioritisation</span></div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- TOOLS + EDUCATION -->
@@ -686,14 +908,6 @@ footer p { font-size: 0.78rem; color: var(--muted); }
       </div>
     </div>
   </div>
-  <div class="tool-group">
-      <div class="tool-group-label">AI Capabilities</div>
-      <div class="tool-pills">
-        <span class="tool-pill">MCP</span>
-        <span class="tool-pill">AI Agents</span>
-        <span class="tool-pill">Gen AI</span>
-      </div>
-    </div>
   <div class="tools-right">
     <p class="section-label" style="color:#444; margin-bottom:2rem;">Education</p>
     <h3>Academic Background</h3>
