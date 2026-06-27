@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prism — Digital Marketing & Data Analytics</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VL72ZRFJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6VL72ZRFJ4');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #FFFFFF;
+  --ink: #0A0A0A;
+  --signal: #FF3D00;
+  --surface: #F5F5F5;
+  --rule: #E0E0E0;
+  --muted: #999999;
+  --dark-surface: #111111;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── CURSOR DOT ── */
+.cursor {
+  position: fixed; width: 8px; height: 8px;
+  background: var(--signal); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s, width 0.2s, height 0.2s;
+  mix-blend-mode: multiply;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3.5rem;
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: -0.03em;
+}
+.nav-logo em { font-style: normal; color: var(--signal); }
+.nav-center {
+  display: flex; gap: 0; list-style: none;
+}
+.nav-center li a {
+  display: block;
+  padding: 0 1.5rem; height: 64px; line-height: 64px;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none;
+  border-left: 1px solid var(--rule);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-center li:last-child a { border-right: 1px solid var(--rule); }
+.nav-center li a:hover { color: var(--ink); background: var(--surface); }
+.nav-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  background: var(--signal); color: var(--white);
+  padding: 0.55rem 1.4rem; text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+.nav-cta:hover { background: #e03500; transform: translateY(-1px); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+  padding-top: 64px;
+}
+.hero-left {
+  padding: 6rem 3.5rem 4rem;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.hero-tag {
+  font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+.hero-tag::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--signal);
+}
+.hero-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 700; line-height: 1.0;
+  letter-spacing: -0.04em;
+  flex-grow: 1; display: flex; align-items: center;
+}
+.hero-headline .block {
+  display: block;
+}
+.hero-headline .block.signal { color: var(--signal); }
+.hero-sub-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 2rem; margin-top: 4rem;
+}
+.hero-desc {
+  font-size: 0.95rem; color: var(--muted);
+  line-height: 1.75; max-width: 320px;
+  font-weight: 400;
+}
+.hero-cta-arrow {
+  flex-shrink: 0;
+  width: 56px; height: 56px;
+  border: 1px solid var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; color: var(--ink);
+  font-size: 1.3rem;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.hero-cta-arrow:hover { background: var(--ink); color: var(--white); transform: rotate(45deg); }
+
+.hero-right {
+  display: flex; flex-direction: column;
+}
+.ticker-panel {
+  flex: 1;
+  padding: 4rem 3rem 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--white);
+}
+.ticker-label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); margin-bottom: 0.4rem;
+}
+.ticker-row {
+  display: flex; align-items: baseline; gap: 0.4rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.ticker-row:first-of-type { border-top: 1px solid var(--rule); }
+.ticker-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  color: var(--ink); line-height: 1;
+  min-width: 3ch;
+}
+.ticker-unit {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem; font-weight: 300; color: var(--muted);
+}
+.ticker-desc {
+  margin-left: auto;
+  text-align: right;
+}
+.ticker-desc strong {
+  display: block;
+  font-size: 0.85rem; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.ticker-desc span { font-size: 0.75rem; color: var(--muted); }
+.ticker-signal { color: var(--signal) !important; }
+
+.hero-bottom-strip {
+  height: 64px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; padding: 0 3rem;
+  gap: 2rem;
+}
+.strip-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--signal); animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.strip-text { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
+.strip-pills { display: flex; gap: 0.5rem; margin-left: auto; }
+.strip-pill {
+  font-size: 0.7rem; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.08em; padding: 0.25rem 0.7rem;
+  border: 1px solid var(--rule); color: var(--muted);
+}
+
+/* ── SERVICES ── */
+#services {
+  border-bottom: 1px solid var(--rule);
+}
+.services-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 3.5rem 3.5rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.services-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; letter-spacing: -0.03em;
+}
+.services-header p {
+  max-width: 340px; color: var(--muted);
+  font-size: 0.9rem; line-height: 1.7; text-align: right;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.svc {
+  padding: 2.5rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.2s;
+  cursor: default;
+  position: relative; overflow: hidden;
+}
+.svc:nth-child(3n) { border-right: none; }
+.svc:hover { background: var(--surface); }
+.svc::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; height: 2px; width: 0;
+  background: var(--signal);
+  transition: width 0.3s ease;
+}
+.svc:hover::after { width: 100%; }
+.svc-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  color: var(--signal); letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+}
+.svc h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 0.75rem;
+}
+.svc p {
+  font-size: 0.875rem; color: var(--muted);
+  line-height: 1.75;
+}
+.svc-chips {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem;
+}
+.chip {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em;
+  color: var(--muted); border: 1px solid var(--rule);
+  padding: 0.2rem 0.55rem; text-transform: uppercase;
+}
+
+/* ── APPROACH ── */
+#approach {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+  min-height: 480px;
+}
+.approach-left {
+  padding: 5rem 3.5rem;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.approach-left h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700; letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+.approach-left h2 i { font-style: italic; font-weight: 300; color: var(--muted); }
+.approach-right {
+  display: flex; flex-direction: column;
+}
+.step-row {
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  padding: 2.2rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+.step-row:last-child { border-bottom: none; }
+.step-row:hover { background: var(--surface); }
+.step-letter {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem; font-weight: 700; color: var(--rule);
+  line-height: 1; flex-shrink: 0; width: 32px;
+  transition: color 0.2s;
+}
+.step-row:hover .step-letter { color: var(--signal); }
+.step-content h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem; font-weight: 600;
+  margin-bottom: 0.3rem; letter-spacing: -0.01em;
+}
+.step-content p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+/* ── CONTACT / LEAD ── */
+#contact {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+.contact-left {
+  background: var(--dark-surface);
+  color: var(--white);
+  padding: 6rem 3.5rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border-right: 1px solid #2a2a2a;
+  position: sticky; top: 64px; height: calc(100vh - 64px);
+}
+.contact-left-tag {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
+  color: #555;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.contact-left-tag::before {
+  content: ''; width: 20px; height: 1px; background: var(--signal);
+}
+.contact-left h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700; letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.contact-left h2 em { font-style: italic; font-weight: 300; color: #555; }
+.contact-promise {
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+.promise-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  font-size: 0.875rem; color: #888; line-height: 1.6;
+}
+.promise-icon {
+  flex-shrink: 0; width: 28px; height: 28px;
+  border: 1px solid #2a2a2a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; color: var(--signal);
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+}
+.contact-right {
+  padding: 6rem 3.5rem;
+  background: var(--white);
+}
+.contact-right h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem; font-weight: 600; letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+.form-sub {
+  font-size: 0.85rem; color: var(--muted); margin-bottom: 2.5rem;
+}
+.field-group { margin-bottom: 1.25rem; }
+.field-group label {
+  display: block; font-size: 0.72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted); margin-bottom: 0.5rem;
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%; background: transparent;
+  border: none; border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0; font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink); outline: none;
+  transition: border-color 0.2s;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  border-bottom-color: var(--ink);
+}
+.field-group input::placeholder,
+.field-group textarea::placeholder { color: #ccc; }
+.field-group select { cursor: pointer; }
+.field-group select option { background: var(--white); color: var(--ink); }
+.field-group textarea { resize: none; height: 80px; }
+.fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.form-btn {
+  margin-top: 2rem; width: 100%;
+  background: var(--ink); color: var(--white);
+  border: none; cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 1.1rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+  transition: background 0.15s;
+}
+.form-btn:hover { background: var(--signal); }
+.form-btn .arrow { transition: transform 0.2s; }
+.form-btn:hover .arrow { transform: translateX(4px); }
+.form-note { font-size: 0.75rem; color: #bbb; margin-top: 0.75rem; text-align: center; }
+#success-msg {
+  display: none;
+  padding: 2.5rem; background: var(--surface);
+  text-align: center;
+}
+#success-msg h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;
+}
+#success-msg p { color: var(--muted); font-size: 0.9rem; }
+#success-msg .signal-dot {
+  width: 12px; height: 12px; background: var(--signal);
+  border-radius: 50%; margin: 0 auto 1.25rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+  border-top: 1px solid var(--rule);
+  background: var(--white);
+  flex-wrap: wrap; gap: 1rem;
+}
+footer .logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 1rem; letter-spacing: -0.03em;
+  color: var(--ink); text-decoration: none;
+}
+footer .logo em { font-style: normal; color: var(--signal); }
+footer p { font-size: 0.78rem; color: var(--muted); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-center { display: none; }
+  #hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 3rem 1.5rem; }
+  .hero-right { border-top: 1px solid var(--rule); }
+  .ticker-panel { padding: 2.5rem 1.5rem; }
+  .hero-bottom-strip { padding: 0 1.5rem; }
+  .services-header { flex-direction: column; padding: 2rem 1.5rem; }
+  .services-header p { text-align: left; }
+  .services-grid { grid-template-columns: 1fr; }
+  .svc { border-right: none; }
+  .svc:nth-child(3n) { border-right: none; }
+  #approach { grid-template-columns: 1fr; }
+  .approach-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+  .step-row { padding: 1.75rem 1.5rem; }
+  #contact { grid-template-columns: 1fr; }
+  .contact-left { position: static; height: auto; padding: 4rem 1.5rem; }
+  .contact-right { padding: 4rem 1.5rem; }
+  .fields-row { grid-template-columns: 1fr; }
+  footer { padding: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .cursor { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Prism<em>.</em></a>
+  <ul class="nav-center">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Talk to Us</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Digital Marketing & Data Analytics</div>
+    <h1 class="hero-headline">
+      <span class="block">Most businesses</span>
+      <span class="block">are flying</span>
+      <span class="block signal">without data.</span>
+    </h1>
+    <div class="hero-sub-row">
+      <p class="hero-desc">
+        We build the marketing engine and the analytics layer together — so every decision you make is grounded in what's actually working.
+      </p>
+      <a href="#contact" class="hero-cta-arrow" title="Get started">→</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="ticker-panel">
+      <p class="ticker-label">Why this matters — live benchmarks</p>
+
+      <div class="ticker-row">
+        <span class="ticker-num ticker-signal" id="t1">68</span>
+        <span class="ticker-unit">%</span>
+        <div class="ticker-desc">
+          <strong>of ad spend wasted</strong>
+          <span>without proper attribution</span>
+        </div>
+      </div>
+
+      <div class="ticker-row">
+        <span class="ticker-num" id="t2">3.2</span>
+        <span class="ticker-unit">×</span>
+        <div class="ticker-desc">
+          <strong>higher conversion rate</strong>
+          <span>with data-led creative testing</span>
+        </div>
+      </div>
+
+      <div class="ticker-row">
+        <span class="ticker-num ticker-signal" id="t3">91</span>
+        <span class="ticker-unit">%</span>
+        <div class="ticker-desc">
+          <strong>of marketers</strong>
+          <span>lack a unified analytics stack</span>
+        </div>
+      </div>
+
+      <div class="ticker-row">
+        <span class="ticker-num" id="t4">7</span>
+        <span class="ticker-unit">wk</span>
+        <div class="ticker-desc">
+          <strong>to first measurable result</strong>
+          <span>our average engagement timeline</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom-strip">
+      <div class="strip-dot"></div>
+      <span class="strip-text">Currently accepting new clients</span>
+      <div class="strip-pills">
+        <span class="strip-pill">B2B</span>
+        <span class="strip-pill">E-Commerce</span>
+        <span class="strip-pill">SaaS</span>
+        <span class="strip-pill">Startups</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <h2>What we<br>actually do</h2>
+    <p>Not a full-service agency. A focused team that does fewer things — and does them properly.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc">
+      <div class="svc-num">01</div>
+      <h3>Performance Marketing</h3>
+      <p>Paid search and social campaigns built around business outcomes, not vanity metrics. We set up clean tracking from day one so you know what's driving revenue.</p>
+      <div class="svc-chips">
+        <span class="chip">Google Ads</span>
+        <span class="chip">Meta</span>
+        <span class="chip">LinkedIn</span>
+        <span class="chip">Attribution</span>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02</div>
+      <h3>SEO & Organic Growth</h3>
+      <p>The compounding channel most businesses under-invest in. We build content and authority strategies that pay back over years, not quarters.</p>
+      <div class="svc-chips">
+        <span class="chip">Technical SEO</span>
+        <span class="chip">Content</span>
+        <span class="chip">Authority</span>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03</div>
+      <h3>Marketing Analytics</h3>
+      <p>Your current reporting probably has gaps. We build attribution models and dashboards that tell you where each pound or dollar actually came from.</p>
+      <div class="svc-chips">
+        <span class="chip">GA4</span>
+        <span class="chip">Looker</span>
+        <span class="chip">GTM</span>
+        <span class="chip">Multi-touch</span>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">04</div>
+      <h3>Data Analytics & BI</h3>
+      <p>Custom dashboards and reporting pipelines that connect your marketing, sales, and product data — so leadership actually uses them.</p>
+      <div class="svc-chips">
+        <span class="chip">SQL</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">Python</span>
+        <span class="chip">Forecasting</span>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">05</div>
+      <h3>Funnel & CRO</h3>
+      <p>More traffic only helps if your funnel converts it. We audit and test landing pages, checkout flows, and onboarding sequences systematically.</p>
+      <div class="svc-chips">
+        <span class="chip">A/B Tests</span>
+        <span class="chip">UX Audit</span>
+        <span class="chip">Heatmaps</span>
+      </div>
+    </div>
+    <div class="svc">
+      <div class="svc-num">06</div>
+      <h3>Strategy & Consulting</h3>
+      <p>Sometimes you need a clear-eyed outside view more than execution. We offer structured audits and advisory for teams who already have in-house capability.</p>
+      <div class="svc-chips">
+        <span class="chip">Audit</span>
+        <span class="chip">Roadmap</span>
+        <span class="chip">Advisory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="approach-left">
+    <div>
+      <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-bottom:1.5rem;">How we work</p>
+      <h2>Structured.<br><i>Not rigid.</i><br>Results-first.</h2>
+    </div>
+    <p style="font-size:0.875rem;color:var(--muted);line-height:1.75;max-width:320px;">
+      Every engagement follows a discipline — but we adapt to where you are. Whether you have nothing set up or an existing stack that's underperforming, we meet you there.
+    </p>
+  </div>
+  <div class="approach-right">
+    <div class="step-row">
+      <div class="step-letter">A</div>
+      <div class="step-content">
+        <h4>Audit everything first</h4>
+        <p>Before recommending anything, we map what you have: ad accounts, analytics setup, data flows, and existing performance. We find the leaks before we turn up the tap.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-letter">B</div>
+      <div class="step-content">
+        <h4>Build the measurement layer</h4>
+        <p>Nothing we run is trackable without this. We set up or fix your tracking, attribution, and reporting infrastructure so results are always verifiable.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-letter">C</div>
+      <div class="step-content">
+        <h4>Execute with a clear hypothesis</h4>
+        <p>Every campaign or test starts with a written hypothesis. We know what "working" looks like before we start — so we don't drift.</p>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-letter">D</div>
+      <div class="step-content">
+        <h4>Double down on what works</h4>
+        <p>When something shows signal, we move fast and scale it. When it doesn't, we kill it and document why. Compounding learning is the real product we deliver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / LEAD FORM -->
+<section id="contact">
+  <div class="contact-left">
+    <div class="contact-left-tag">Start here</div>
+    <h2>Tell us<br>what's <em>not<br>working.</em></h2>
+    <div class="contact-promise">
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <span>We'll review your situation and respond with an honest assessment within 1 business day.</span>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <span>If there's a fit, we'll book a 45-minute working session — not a sales call.</span>
+      </div>
+      <div class="promise-item">
+        <div class="promise-icon">→</div>
+        <span>No retainer pressure. We'll tell you what we'd actually do and what it would cost.</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <h3>Get in touch</h3>
+    <p class="form-sub">Takes under 2 minutes. We read every submission.</p>
+
+    <form id="leadForm">
+      <div class="fields-row">
+        <div class="field-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Alex" required>
+        </div>
+        <div class="field-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Johnson" required>
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="alex@company.com" required>
+      </div>
+      <div class="field-group">
+        <label for="company">Company / Website</label>
+        <input type="text" id="company" name="company" placeholder="Acme Inc. or acmeinc.com" required>
+      </div>
+      <div class="fields-row">
+        <div class="field-group">
+          <label for="budget">Monthly Budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select</option>
+            <option>Under £2,000</option>
+            <option>£2,000 – £5,000</option>
+            <option>£5,000 – £15,000</option>
+            <option>£15,000+</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="service">Primary Need</label>
+          <select id="service" name="service">
+            <option value="">Select</option>
+            <option>Performance Marketing</option>
+            <option>SEO / Organic</option>
+            <option>Analytics / BI</option>
+            <option>CRO / Funnel</option>
+            <option>Full Growth Strategy</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="problem">What's the actual problem?</label>
+        <textarea id="problem" name="problem" placeholder="e.g. We spend on ads but have no idea what's working. Our CAC has been climbing for 3 months..."></textarea>
+      </div>
+      <button type="submit" class="form-btn">
+        Send Message <span class="arrow">→</span>
+      </button>
+      <p class="form-note">We don't share your information. Ever.</p>
+    </form>
+
+    <div id="success-msg">
+      <div class="signal-dot"></div>
+      <h3>Message received.</h3>
+      <p>We'll review your details and be in touch within 1 business day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">Prism<em>.</em></a>
+  <p>Digital Marketing & Data Analytics Consulting</p>
+  <p>hello@prismgrowth.co</p>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a, button, .svc, .step-row').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px'; cursor.style.height = '20px'; cursor.style.opacity = '0.5';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '8px'; cursor.style.height = '8px'; cursor.style.opacity = '1';
+  });
+});
+
+// Ticker animation — gentle fluctuation to feel live
+function animateTicker(id, base, range, isDecimal) {
+  const el = document.getElementById(id);
+  setInterval(() => {
+    const val = base + (Math.random() - 0.5) * range;
+    el.textContent = isDecimal ? val.toFixed(1) : Math.round(val);
+  }, 2800 + Math.random() * 1200);
+}
+animateTicker('t1', 68, 6, false);
+animateTicker('t2', 3.2, 0.4, true);
+animateTicker('t3', 91, 4, false);
+animateTicker('t4', 7, 1, false);
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'none';
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.svc, .step-row, .result-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  obs.observe(el);
+});
+
+// Form submit + GA4 lead event
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+  gtag('event', 'generate_lead', {
+    event_category: 'Lead Form',
+    event_label: 'Contact Form Submitted',
+    service: document.getElementById('service').value || 'Not selected',
+    budget: document.getElementById('budget').value || 'Not selected'
+  });
+});
+
+// CTA click tracking
+document.querySelectorAll('a[href="#contact"], .nav-cta').forEach(el => {
+  el.addEventListener('click', () => {
+    gtag('event', 'cta_click', {
+      event_category: 'Engagement',
+      event_label: el.textContent.trim()
+    });
+  });
+});
+
+// Scroll depth tracking (25 / 50 / 75 / 100%)
+const scrollDepths = [25, 50, 75, 100];
+const scrollFired = new Set();
+window.addEventListener('scroll', () => {
+  const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+  scrollDepths.forEach(d => {
+    if (pct >= d && !scrollFired.has(d)) {
+      scrollFired.add(d);
+      gtag('event', 'scroll_depth', {
+        event_category: 'Scroll',
+        event_label: d + '%',
+        value: d
+      });
+    }
+  });
+});
+
+// Section view tracking
+const sections = document.querySelectorAll('section[id]');
+const sectionObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      gtag('event', 'section_view', {
+        event_category: 'Section',
+        event_label: e.target.id
+      });
+      sectionObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => sectionObs.observe(s));
+</script>
+</body>
+</html>
