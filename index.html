@@ -3,7 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prism — Digital Marketing & Data Analytics</title>
+<!-- ── SEO: PRIMARY ── -->
+<title>Prism — Digital Marketing & Data Analytics Consulting | Australia</title>
+<meta name="description" content="Prism is a digital marketing and data analytics consultancy based in Australia. We help B2B, SaaS, and e-commerce businesses make smarter decisions through GA4, performance marketing, SEO, and BI dashboards.">
+<meta name="keywords" content="digital marketing consultant Australia, data analytics consulting, GA4 consultant, performance marketing Australia, marketing analytics, SEO consultant Australia, Power BI dashboard, Google Analytics consultant">
+<meta name="author" content="Nitish Malhotra — Prism Growth">
+<link rel="canonical" href="https://nitishmalhotra.github.io/prismgrowth/">
+
+<!-- ── SEO: OPEN GRAPH (LinkedIn, Facebook) ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nitishmalhotra.github.io/prismgrowth/">
+<meta property="og:title" content="Prism — Digital Marketing & Data Analytics Consulting">
+<meta property="og:description" content="We build the marketing engine and the analytics layer together — so every decision you make is grounded in what's actually working.">
+<meta property="og:image" content="https://nitishmalhotra.github.io/prismgrowth/og-image.png">
+<meta property="og:locale" content="en_AU">
+<meta property="og:site_name" content="Prism Growth">
+
+<!-- ── SEO: TWITTER CARD ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prism — Digital Marketing & Data Analytics Consulting">
+<meta name="twitter:description" content="We build the marketing engine and the analytics layer together — so every decision you make is grounded in what's actually working.">
+<meta name="twitter:image" content="https://nitishmalhotra.github.io/prismgrowth/og-image.png">
+
+<!-- ── SEO: SCHEMA.ORG (Google Rich Results) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Prism Growth",
+  "description": "Digital marketing and data analytics consulting for B2B, SaaS, and e-commerce businesses in Australia.",
+  "url": "https://nitishmalhotra.github.io/prismgrowth/",
+  "email": "hello@prismgrowth.co.au",
+  "founder": {
+    "@type": "Person",
+    "name": "Nitish Malhotra",
+    "jobTitle": "Founder & Principal Consultant",
+    "url": "https://nitishmalhotra.github.io/prismgrowth/about.html",
+    "sameAs": [
+      "https://www.linkedin.com/in/nitish-malhotra-3794b9b4/",
+      "https://github.com/Nitishmalhotra"
+    ]
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "serviceType": [
+    "Digital Marketing Consulting",
+    "Data Analytics Consulting",
+    "GA4 Implementation",
+    "Performance Marketing",
+    "SEO & Organic Growth",
+    "Marketing Analytics",
+    "CRO & Funnel Optimisation",
+    "Business Intelligence & Dashboards"
+  ],
+  "priceRange": "$$"
+}
+</script>
+
+
 <!-- Google tag (gtag.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -747,7 +806,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 <footer>
   <a href="#" class="logo">Prism<em>.</em></a>
   <p>Digital Marketing & Data Analytics Consulting</p>
-  <p>	prismgrowth.au@gmail.com</p>
+  <p>hello@prismgrowth.co.au</p>
 </footer>
 
 <script>
@@ -802,8 +861,7 @@ function sendEvent(name, params) {
   }
 }
 
-// Form submit — sends to prismgrowth.au@gmail.com
- via Formspree + fires GA4 event
+// Form submit — sends to hello@prismgrowth.co.au via Formspree + fires GA4 event
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = this;
@@ -825,11 +883,10 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         budget: document.getElementById('budget').value || 'Not selected'
       });
     } else {
-      alert('Something went wrong. Please email us directly at 	prismgrowth.au@gmail.com');
+      alert('Something went wrong. Please email us directly at hello@prismgrowth.co.au');
     }
   } catch(err) {
-    alert('Network error. Please email us at 	prismgrowth.au@gmail.com
-');
+    alert('Network error. Please email us at hello@prismgrowth.co.au');
   }
 });
 
