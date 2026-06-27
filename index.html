@@ -747,7 +747,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 <footer>
   <a href="#" class="logo">Prism<em>.</em></a>
   <p>Digital Marketing & Data Analytics Consulting</p>
-  <p>hello@prismgrowth.co.au</p>
+  <p>	prismgrowth.au@gmail.com</p>
 </footer>
 
 <script>
@@ -802,7 +802,8 @@ function sendEvent(name, params) {
   }
 }
 
-// Form submit — sends to hello@prismgrowth.co.au via Formspree + fires GA4 event
+// Form submit — sends to prismgrowth.au@gmail.com
+ via Formspree + fires GA4 event
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = this;
@@ -824,10 +825,11 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
         budget: document.getElementById('budget').value || 'Not selected'
       });
     } else {
-      alert('Something went wrong. Please email us directly at hello@prismgrowth.co.au');
+      alert('Something went wrong. Please email us directly at 	prismgrowth.au@gmail.com');
     }
   } catch(err) {
-    alert('Network error. Please email us at hello@prismgrowth.co.au');
+    alert('Network error. Please email us at 	prismgrowth.au@gmail.com
+');
   }
 });
 
