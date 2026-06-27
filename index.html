@@ -688,7 +688,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
     <h3>Get in touch</h3>
     <p class="form-sub">Takes under 2 minutes. We read every submission.</p>
 
-    <form id="leadForm">
+    <form id="leadForm" action="https://formspree.io/f/mgojkbvw" method="POST">
       <div class="fields-row">
         <div class="field-group">
           <label for="fname">First Name</label>
@@ -709,14 +709,8 @@ footer p { font-size: 0.78rem; color: var(--muted); }
       </div>
       <div class="fields-row">
         <div class="field-group">
-          <label for="budget">Monthly Budget</label>
-          <select id="budget" name="budget">
-            <option value="">Select</option>
-            <option>Under £2,000</option>
-            <option>£2,000 – £5,000</option>
-            <option>£5,000 – £15,000</option>
-            <option>£15,000+</option>
-          </select>
+          <label for="budget">Monthly Budget (AUD)</label>
+          <input type="text" id="budget" name="budget" placeholder="e.g. $3,000 / month">
         </div>
         <div class="field-group">
           <label for="service">Primary Need</label>
@@ -752,7 +746,7 @@ footer p { font-size: 0.78rem; color: var(--muted); }
 <footer>
   <a href="#" class="logo">Prism<em>.</em></a>
   <p>Digital Marketing & Data Analytics Consulting</p>
-  <p>hello@prismgrowth.co</p>
+  <p>hello@prismgrowth.co.au</p>
 </footer>
 
 <script>
@@ -807,17 +801,33 @@ function sendEvent(name, params) {
   }
 }
 
-// Form submit + GA4 lead event
-document.getElementById('leadForm').addEventListener('submit', function(e) {
+// Form submit — sends to hello@prismgrowth.co.au via Formspree + fires GA4 event
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
-  this.style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
-  sendEvent('generate_lead', {
-    event_category: 'Lead Form',
-    event_label: 'Contact Form Submitted',
-    service: document.getElementById('service').value || 'Not selected',
-    budget: document.getElementById('budget').value || 'Not selected'
-  });
+  const form = this;
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch('https://formspree.io/f/mgojkbvw', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      sendEvent('generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Contact Form Submitted',
+        service: document.getElementById('service').value || 'Not selected',
+        budget: document.getElementById('budget').value || 'Not selected'
+      });
+    } else {
+      alert('Something went wrong. Please email us directly at hello@prismgrowth.co.au');
+    }
+  } catch(err) {
+    alert('Network error. Please email us at hello@prismgrowth.co.au');
+  }
 });
 
 // CTA click tracking
