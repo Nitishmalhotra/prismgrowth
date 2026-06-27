@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://nitishmalhotra.github.io/prismgrowth/</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://nitishmalhotra.github.io/prismgrowth/about.html</loc>
-    <lastmod>2025-06-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.prismgrowth.co.au/</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/about.html</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/blog.html</loc><lastmod>2025-06-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/blog-ga4-guide.html</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/blog-ad-spend.html</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/blog-seo-basics.html</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.prismgrowth.co.au/blog-ai-marketing.html</loc><lastmod>2025-06-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

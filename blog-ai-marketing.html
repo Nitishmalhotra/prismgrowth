@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How AI Is Changing Digital Marketing — And What It Means for Your Business | Prism Growth</title>
+<meta name="description" content="From AI-generated content to autonomous ad campaigns, marketing is changing fast. A plain-English guide to what GenAI actually means for your growth strategy in 2025.">
+<meta name="author" content="Nitish Malhotra — Prism Growth">
+<link rel="canonical" href="https://www.prismgrowth.co.au/blog-ai-marketing.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.prismgrowth.co.au/blog-ai-marketing.html">
+<meta property="og:title" content="How AI Is Changing Digital Marketing | Prism Growth">
+<meta property="og:description" content="From AI-generated content to autonomous ad campaigns, marketing is changing fast. A plain-English guide to what GenAI actually means for your growth strategy in 2025.">
+<meta property="og:site_name" content="Prism Growth">
+<meta property="og:locale" content="en_AU">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How AI Is Changing Digital Marketing — And What It Means for Your Business",
+  "description": "From AI-generated content to autonomous ad campaigns, marketing is changing fast. A plain-English guide to what GenAI actually means for your growth strategy in 2025.",
+  "author": {"@type": "Person", "name": "Nitish Malhotra"},
+  "publisher": {"@type": "Organization", "name": "Prism Growth", "url": "https://www.prismgrowth.co.au/"},
+  "url": "https://www.prismgrowth.co.au/blog-ai-marketing.html",
+  "datePublished": "2025-06-27"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #FFFFFF; --ink: #0A0A0A; --signal: #FF3D00;
+  --surface: #F5F5F5; --rule: #E0E0E0; --muted: #999999; --dark-surface: #111111;
+}
+html { scroll-behavior: smooth; }
+body { font-family: "DM Sans", sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; }
+.cursor {
+  position: fixed; width: 8px; height: 8px; background: var(--signal); border-radius: 50%;
+  pointer-events: none; z-index: 9999; transform: translate(-50%,-50%);
+  transition: width 0.2s, height 0.2s; mix-blend-mode: multiply;
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3.5rem; height: 64px; background: var(--white); border-bottom: 1px solid var(--rule);
+}
+.nav-logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--ink); text-decoration: none; letter-spacing: -0.03em; }
+.nav-logo em { font-style: normal; color: var(--signal); }
+.nav-center { display: flex; list-style: none; }
+.nav-center li a {
+  display: block; padding: 0 1.5rem; height: 64px; line-height: 64px;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; border-left: 1px solid var(--rule); transition: color 0.15s, background 0.15s;
+}
+.nav-center li:last-child a { border-right: 1px solid var(--rule); }
+.nav-center li a:hover, .nav-center li a.active { color: var(--ink); background: var(--surface); }
+.nav-cta {
+  font-family: "Space Grotesk", sans-serif; font-size: 0.82rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em; background: var(--signal);
+  color: var(--white); padding: 0.55rem 1.4rem; text-decoration: none; transition: background 0.15s;
+}
+.nav-cta:hover { background: #e03500; }
+
+/* ARTICLE HEADER */
+.article-header {
+  padding-top: 64px; border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.article-header-left {
+  padding: 5rem 3.5rem 4rem; border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.article-cat {
+  font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--signal);
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 2rem;
+}
+.article-cat::before { content: ""; width: 24px; height: 1px; background: var(--signal); }
+.article-header-left h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
+  line-height: 1.1; letter-spacing: -0.035em;
+}
+.article-byline {
+  margin-top: 3rem; display: flex; align-items: center; gap: 1.5rem;
+  padding-top: 1.5rem; border-top: 1px solid var(--rule);
+  font-size: 0.8rem; color: var(--muted);
+}
+.byline-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--ink), #444);
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Space Grotesk", sans-serif; font-weight: 700;
+  font-size: 0.85rem; color: var(--white); flex-shrink: 0;
+}
+.byline-name { font-weight: 600; color: var(--ink); font-size: 0.85rem; }
+.article-header-right {
+  padding: 5rem 3.5rem 4rem;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.article-summary {
+  font-size: 1.05rem; color: var(--muted); line-height: 1.8; max-width: 420px;
+}
+.article-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+.chip {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.04em;
+  color: var(--muted); border: 1px solid var(--rule); padding: 0.2rem 0.55rem; text-transform: uppercase;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  display: grid; grid-template-columns: 200px 1fr 200px;
+  max-width: 1200px; margin: 0 auto; padding: 5rem 3.5rem; gap: 4rem;
+}
+.article-toc {
+  position: sticky; top: 90px; align-self: start;
+}
+.toc-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; font-weight: 600; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.toc-list li a {
+  font-size: 0.82rem; color: var(--muted); text-decoration: none; line-height: 1.4;
+  transition: color 0.15s; display: block; padding-left: 0.75rem; border-left: 2px solid var(--rule);
+}
+.toc-list li a:hover { color: var(--ink); border-left-color: var(--signal); }
+.article-content h2 {
+  font-family: "Space Grotesk", sans-serif; font-size: 1.5rem; font-weight: 700;
+  letter-spacing: -0.025em; margin: 2.5rem 0 1rem; line-height: 1.2;
+}
+.article-content h3 {
+  font-family: "Space Grotesk", sans-serif; font-size: 1.1rem; font-weight: 600;
+  letter-spacing: -0.01em; margin: 2rem 0 0.75rem;
+}
+.article-content p { font-size: 1rem; line-height: 1.85; color: #333; margin-bottom: 1.25rem; }
+.article-content ul, .article-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.article-content li { font-size: 1rem; line-height: 1.75; color: #333; margin-bottom: 0.4rem; }
+.article-content strong { color: var(--ink); font-weight: 600; }
+.callout {
+  background: var(--surface); border-left: 3px solid var(--signal);
+  padding: 1.25rem 1.5rem; margin: 2rem 0; border-radius: 0 4px 4px 0;
+}
+.callout p { color: var(--ink); font-weight: 500; margin: 0; font-size: 0.95rem; }
+.article-sidebar { position: sticky; top: 90px; align-self: start; }
+.sidebar-cta {
+  background: var(--dark-surface); color: var(--white); padding: 2rem 1.5rem;
+}
+.sidebar-cta p { font-size: 0.78rem; color: #666; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.sidebar-cta h3 { font-family: "Space Grotesk", sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3; }
+.sidebar-cta a {
+  display: block; background: var(--signal); color: var(--white); text-align: center;
+  padding: 0.7rem; font-family: "Space Grotesk", sans-serif; font-size: 0.78rem;
+  font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;
+  transition: background 0.15s;
+}
+.sidebar-cta a:hover { background: #e03500; }
+
+/* BACK LINK */
+.back-bar {
+  padding: 1.25rem 3.5rem; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+.back-link { font-size: 0.82rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
+.back-link:hover { color: var(--ink); }
+
+/* FOOTER */
+footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.5rem 3.5rem; border-top: 1px solid var(--rule); background: var(--white); flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; }
+.footer-logo em { font-style: normal; color: var(--signal); }
+footer p { font-size: 0.78rem; color: var(--muted); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; } .nav-center { display: none; }
+  .article-header { grid-template-columns: 1fr; }
+  .article-header-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+  .article-header-right { padding: 2.5rem 1.5rem; }
+  .article-body { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 2rem; }
+  .article-toc, .article-sidebar { position: static; }
+  .back-bar { padding: 1rem 1.5rem; } footer { padding: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } .cursor { display: none; } }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">Prism<em>.</em></a>
+  <ul class="nav-center">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#approach">Approach</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Talk to Us</a>
+</nav>
+
+<div class="back-bar">
+  <a href="blog.html" class="back-link">← Back to Blog</a>
+</div>
+
+<header class="article-header">
+  <div class="article-header-left">
+    <div class="article-cat">AI & GenAI</div>
+    <h1>How AI Is Changing Digital Marketing — And What It Means for Your Business</h1>
+    <div class="article-byline">
+      <div class="byline-avatar">NM</div>
+      <div>
+        <div class="byline-name">Nitish Malhotra</div>
+        <div>Founder, Prism Growth · 9 min read</div>
+      </div>
+    </div>
+  </div>
+  <div class="article-header-right">
+    <p class="article-summary">From AI-generated content to autonomous ad campaigns, marketing is changing fast. A plain-English guide to what GenAI actually means for your growth strategy in 2025.</p>
+    <div class="article-chips">
+      <span class="chip">AI & GenAI</span>
+      <span class="chip">Prism Growth</span>
+      <span class="chip">Australia</span>
+    </div>
+  </div>
+</header>
+
+<div class="article-body">
+  <aside class="article-toc">
+    <div class="toc-label">In this article</div>
+    <ul class="toc-list"><li><a href="#whats-changing">What is actually changing</a></li>
+      <li><a href="#genai-content">AI and content creation</a></li>
+      <li><a href="#ai-ads">AI in advertising</a></li>
+      <li><a href="#ai-analytics">AI and analytics</a></li>
+      <li><a href="#what-to-do">What to do now</a></li></ul>
+  </aside>
+  <article class="article-content">
+    <h2 id="whats-changing">What is actually changing in marketing right now</h2>
+    <p>AI is not a future trend for marketing. It is already here, already changing how ads are bought, how content is created, and how customer data is analysed. The question for most business owners is not whether to engage with it — it's how to do so without wasting time on hype and without missing the parts that genuinely matter.</p>
+    <p>Let's separate the signal from the noise. Here are the areas where AI is making a real difference for businesses right now — and what it means for you.</p>
+    <div class="callout"><p>The most important framing: AI is a capability multiplier, not a replacement for strategy. Businesses that use AI to do more of what already works will win. Businesses that use AI to avoid thinking about strategy will burn money faster.</p></div>
+
+    <h2 id="genai-content">AI and content creation — the honest picture</h2>
+    <p>Tools like ChatGPT, Claude, and Gemini can generate marketing content — blog posts, social captions, email subject lines, ad copy — in seconds. This is genuinely useful for speeding up production. But it comes with a significant caveat.</p>
+    <p>Google has stated clearly that AI-generated content is not penalised — but <strong>low-quality content is</strong>, regardless of who or what wrote it. Content written by AI that is generic, inaccurate, or unhelpful will underperform. Content written with AI assistance but edited, fact-checked, and genuinely shaped by someone with real expertise will perform well.</p>
+    <p>The practical implication: use AI to draft and accelerate, not to replace judgment. The expertise — the specific knowledge about your industry, your customers, and what actually helps them — still has to come from you.</p>
+
+    <h2 id="ai-ads">How AI is changing paid advertising</h2>
+    <p>This is where the shift is most significant and most immediate. Google's Performance Max campaigns and Meta's Advantage+ campaigns are fully AI-driven ad products. You provide assets (images, headlines, descriptions) and the AI decides who to show them to, when, and in what format.</p>
+    <p>This can work very well — or very badly. The difference is almost always in the quality of the inputs and the quality of the conversion tracking. AI-driven campaigns optimise toward the goal you give them. If your conversion tracking is broken or measuring the wrong thing, the AI will optimise hard toward the wrong outcome.</p>
+    <p>We've seen AI campaigns that halved cost-per-acquisition within 60 days, and campaigns that confidently spent budget on entirely the wrong audience for months. The technology is the same in both cases. What differs is the foundation it's built on.</p>
+
+    <h2 id="ai-analytics">AI and data analytics — what's genuinely useful</h2>
+    <p>AI is beginning to appear in analytics tools in meaningful ways. GA4 now includes AI-powered anomaly detection (it alerts you when something unusual happens in your data) and predictive audiences (it estimates which users are most likely to convert or churn).</p>
+    <p>More significantly, tools like BigQuery ML and emerging platforms allow businesses to build predictive models on top of their own data without needing a dedicated data science team. Customer lifetime value prediction, churn risk scoring, and next-best-action recommendations — capabilities that used to require a team of data scientists — are increasingly accessible to businesses with clean data and someone who knows how to use these tools.</p>
+    <p>The prerequisite for all of this is data quality. AI models trained on messy, incomplete, or incorrectly tracked data produce unreliable outputs. Getting your analytics fundamentals right is not just good practice — it's the foundation for being able to use any of these AI capabilities effectively.</p>
+
+    <h2 id="what-to-do">What should you actually do right now?</h2>
+    <p>If you're a business owner trying to figure out where to focus, here's a practical priority order:</p>
+    <ol>
+      <li><strong>Get your data foundations right first.</strong> Clean GA4 setup, accurate conversion tracking, and a reliable way to see which channels are driving results. Without this, AI tools are working from bad information.</li>
+      <li><strong>Experiment with AI content tools — carefully.</strong> Use them to draft, speed up ideation, and handle repetitive writing tasks. Always edit with genuine expertise. Never publish AI-generated content that hasn't been reviewed and shaped by someone who knows your business.</li>
+      <li><strong>If you're running paid ads, understand what your AI campaigns are optimising for.</strong> Review Performance Max and Advantage+ campaigns carefully. Make sure they're feeding off accurate conversion data.</li>
+      <li><strong>Stay curious, not reactive.</strong> New AI tools are launching constantly. Most of them won't matter to your specific business. Evaluate new tools against a simple question: does this make something I already do better? If not, park it.</li>
+    </ol>
+    <p>The businesses that will benefit most from AI in marketing over the next few years are not the ones chasing every new tool. They're the ones that build reliable data infrastructure now, and layer AI capabilities on top of it progressively.</p>
+    <p>If you want to talk through what this means for your specific business, we offer a free 30-minute session with no obligation. We'll tell you honestly what's relevant to your situation and what's noise.</p>
+  </article>
+  <aside class="article-sidebar">
+    <div class="sidebar-cta">
+      <p>Free consultation</p>
+      <h3>Want us to look at your data?</h3>
+      <a href="index.html#contact">Book a Free Audit →</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Prism<em>.</em></a>
+  <p>Digital Marketing & Data Analytics Consulting</p>
+  <p>hello@prismgrowth.co.au</p>
+</footer>
+<script>
+const cursor = document.getElementById("cursor");
+document.addEventListener("mousemove", e => { cursor.style.left = e.clientX + "px"; cursor.style.top = e.clientY + "px"; });
+document.querySelectorAll("a, button").forEach(el => {
+  el.addEventListener("mouseenter", () => { cursor.style.width = "20px"; cursor.style.height = "20px"; cursor.style.opacity = "0.5"; });
+  el.addEventListener("mouseleave", () => { cursor.style.width = "8px"; cursor.style.height = "8px"; cursor.style.opacity = "1"; });
+});
+</script>
+</body>
+</html>
